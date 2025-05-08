@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fonctionnement des Voitures</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="wrapper">
+    <h1>Le Fonctionnement d’une Voiture : Les Bases</h1>
+    <p class="description">
+        La voiture est un moyen de transport essentiel, mais son fonctionnement reste souvent méconnu. Au cœur de ce système, on trouve le moteur, qui produit l’énergie nécessaire au déplacement. Cette énergie est transmise grâce à l’embrayage et à la boîte de vitesses, qui adaptent la puissance selon la vitesse. Enfin, la transmission envoie cette force aux roues, permettant à la voiture d’avancer.
+        <br>Quelques images :
+    </p>
+
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide">
+          <img src="./unnamed.png" alt="Schéma moteur">
+          <div class="overlay">Schéma Moteur</div>
+        </div>
+       
+        <div class="carousel-slide">
+            <img src="./boite de vitesse.jpg" alt="Transmission">
+            <div class="overlay">Boite de Vitesse</div>
+        </div> 
+
+        <div class="carousel-slide">
+          <img src="./trransmission.png" alt="Mécanique">
+          <div class="overlay">Transmission</div>
+        </div>
+
+        <div class="carousel-slide">
+          <img src="./embrayage.jpg" alt="Moteur V8" height="500px">
+          <div class="overlay">Embrayage</div>
+        </div>
+      </div>
+
+      <div class="carousel-nav">
+        <button id="prevBtn">&#10094;</button>
+        <button id="nextBtn">&#10095;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="signature">  
+    <a href= "#" class="youtube" target="__blank">
+        <p><CENTER>Réalisé par Santiago Rodrigues <br> 2GT2</CENTER></p>
+    </a>
+  </div>
+
+  <script>
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let index = 0;
+    const totalSlides = 4;
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${index * 700}px)`;  
+    }
+
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % totalSlides;
+      updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    });
+
+    setInterval(() => {
+      index = (index + 1) % totalSlides;
+      updateCarousel();
+    }, 4000);
+  </script>
+
+</body>
+</html>
